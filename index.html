@@ -17,12 +17,32 @@
 
   gtag('config', 'AW-18153677882');
 </script>
+<!-- Event snippet for Outbound click conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-18153677882/hi2JCN6x9KocELrIrNBD',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
 </head>
 <body>
   <div class="membership-popup" id="membershipPopup" aria-label="Empire Fitness WhatsApp offer">
     <a
       class="popup-whatsapp-button"
       href="https://wa.me/917461800842?text=Hi%20Empire%20I%20want%20to%20know%20more.."
+      onclick="return gtag_report_conversion(this.href)"
       target="_blank"
       rel="noopener"
       aria-label="Chat with Empire Fitness on WhatsApp"
@@ -32,6 +52,7 @@
     <a
       class="popup-image-link"
       href="https://wa.me/917461800842?text=Hi%20Empire%20I%20want%20to%20know%20more.."
+      onclick="return gtag_report_conversion(this.href)"
       target="_blank"
       rel="noopener"
       aria-label="Chat with Empire Fitness on WhatsApp"
