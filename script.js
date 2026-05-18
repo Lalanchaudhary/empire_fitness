@@ -56,17 +56,6 @@ if (bmiForm && bmiResult) {
   });
 }
 
-const popup = document.getElementById("membershipPopup");
-const closePopup = document.querySelector("[data-close-popup]");
-
-if (popup) {
-  window.setTimeout(() => popup.classList.add("show"), 900);
-}
-
-if (closePopup && popup) {
-  closePopup.addEventListener("click", () => popup.classList.remove("show"));
-}
-
 document.querySelectorAll("[data-slider]").forEach((slider) => {
   const testimonials = [...slider.querySelectorAll(".testimonial")];
   const next = slider.querySelector("[data-next]");
